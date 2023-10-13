@@ -5,7 +5,3 @@ steps:
       modules: PSRule.Rules.Azure
       outputFormat: Sarif
       outputPath: reports/ps-rule-results.sarif
-  - publish: $(System.DefaultWorkingDirectory)/reports/ps-rule-results.sarif
-    artifact: CodeAnalysisLogs
-    displayName: Publish SARIF logs
-    condition: 'always()'

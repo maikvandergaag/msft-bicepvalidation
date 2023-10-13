@@ -1,14 +1,14 @@
 parameters:
   - name: modulesFolder
     type: string
-    default: '$(System.DefaultWorkingDirectory)/modules'
+    default: '$(System.DefaultWorkingDirectory)/bicep'
 
 steps:
   - task: PowerShell@2
     displayName: 'Generate Bicep module documentation'
     inputs:
       filePath: '$(System.DefaultWorkingDirectory)/scripts/New-BicepDocs.ps1'
-      arguments: '-TemplateFolder "${{ parameters.modulesFolder }}" -OutputFolder "$(System.DefaultWorkingDirectory)/TempDocs/" -IndexFileName "Modules"'
+      arguments: '-TemplateFolder "${{ parameters.modulesFolder }}" -OutputFolder "$(System.DefaultWorkingDirectory)/TempDocs/" -IndexFileName "IaC"'
       pwsh: true
   - task: PublishBuildArtifacts@1
     displayName: 'Publish documentation'      
