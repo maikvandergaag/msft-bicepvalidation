@@ -9,10 +9,9 @@ steps:
       version: 6.0.x
   - task: MicrosoftSecurityDevOps@1
     displayName: 'Code Analysis: Microsoft Security DevOps'
-  - task: PublishBuildArtifacts@1
-    displayName: 'Code Analysis: Publish Artifact'      
-    condition: always()
     inputs:
-      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-      ArtifactName: 'CodeAnalysisLogs'
-      publishLocation: 'Container'
+      categories: 'IaC'
+  - task: CopyFiles@2
+    inputs:
+      contents: 'msdo.sarif'
+      targetFolder: $(Build.ArtifactStagingDirectory)/reports
