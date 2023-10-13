@@ -1,0 +1,37 @@
+binding:
+  preferTargetInfo: true
+  targetType:
+    - type
+    - resourceType
+
+# Require minimum versions of modules.
+requires:
+  PSRule.Rules.Azure: '@pre >=1.30.0'
+
+include:
+  module:
+    - PSRule.Rules.Azure
+
+output:
+  culture:
+    - 'en-US'
+
+input:
+  pathIgnore:
+    # Ignore other files in the repository.
+    - '**'
+    # Include deployments.
+    - '!bicep/**/*.bicepparam'
+    - '!bicep/**/*.bicep'
+    # Include module tests.
+    - '!modules/**/*.bicep'
+
+configuration:
+  AZURE_PARAMETER_FILE_EXPANSION: true
+  AZURE_BICEP_FILE_EXPANSION: true
+  AZURE_BICEP_PARAMS_FILE_EXPANSION: true
+  AZURE_BICEP_FILE_EXPANSION_TIMEOUT: 10
+  AZURE_BICEP_CHECK_TOOL: true
+  AZURE_PARAMETER_DEFAULTS:
+    name: 'test'
+    environment: 'ylm'

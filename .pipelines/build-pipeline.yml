@@ -1,0 +1,17 @@
+trigger:
+  paths:
+    exclude:
+      - .pipelines
+      - .ps-rule
+    include:
+      - bicep
+
+stages:
+  - template: templates/infrastructure.yml
+    parameters:
+      build: true
+      documentation: false
+      buildScripts: true
+      buildInfrastructure: true
+      analyse: true
+      serviceconnection: ''

@@ -1,0 +1,64 @@
+parameters:
+  - name: bicepPath
+    type: string
+    default: '$(System.DefaultWorkingDirectory)/modules/'
+  - name: serviceconnection
+    type: string
+  - name: iacArtifactName
+    type: string
+    default: 'iac'
+  - name: msado
+    type: boolean
+    default: true
+  - name: build
+    type: boolean
+    default: true
+  - name: documentation
+    type: boolean
+    default: true
+  - name: psrule
+    type: boolean
+    default: true
+
+stages:
+  - stage: Build
+    displayName: Build
+    jobs:
+      - job: MS_ADO
+        displayName: Microsoft Security for DevOps
+        dependsOn: Build_IaC
+        condition: eq('${{ parameters.msado }}', true)
+        workspace:
+          clean: all
+        continueOnError: false
+        steps:
+          - template: parts/microsoftsecuritydevops.yml
+      - job: Build_Bicep
+        displayName: Build / Analyse Bicep
+        condition: eq('${{ parameters.build }}', true)
+        workspace:
+          clean: all
+        continueOnError: false
+        steps:
+          - template: parts/build.yml
+            parameters:
+              iacPath: '${{ parameters.bicepPath }}'
+              iacArtifactName: '${{ parameters.iacArtifactName }}'
+              serviceconnection: '${{ parameters.serviceconnection }}'
+      - job: PSRule
+        displayName: Run PSRule
+        condition: eq('${{ parameters.psrule }}', true)
+        workspace:
+          clean: all
+        continueOnError: false
+        steps:
+          - template: parts/ruleengine.yml           
+      - job: Documentation_Generation
+        displayName: Documentation Generation
+        condition: eq('${{ parameters.documentation }}', true)
+        dependsOn: Build_IaC
+        workspace:
+          clean: all
+        continueOnError: false
+        steps:
+          - template: parts/new-documentation.yml

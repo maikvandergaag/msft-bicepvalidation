@@ -1,0 +1,16 @@
+---
+# Synopsis: Suppress rules that will not be handled
+apiVersion: github.com/microsoft/PSRule/v1
+kind: SuppressionGroup
+metadata:
+  name: msft.Generic.IgnoreRule
+spec:
+  rule:
+    - Azure.Storage.UseReplication
+    - Azure.Storage.SoftDelete
+    - Azure.Storage.ContainerSoftDelete
+    - Azure.Storage.Firewall
+  if:
+    type: '.'
+    in:
+      - 'Microsoft.Storage/storageAccounts'

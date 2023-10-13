@@ -1,0 +1,42 @@
+parameters:
+  - name: iacPath
+    type: string
+    default: '$(System.DefaultWorkingDirectory)/bicep/'
+  - name: iacArtifactName
+    type: string
+    default: 'iac'
+  - name: serviceconnection
+    type: string
+
+steps:
+  - task: AzureCLI@2
+    displayName: 'Build Bicep file'
+    inputs:
+      azureSubscription: '${{ parameters.serviceconnection }}'
+      scriptType: 'pscore'
+      scriptLocation: 'inlineScript'
+      inlineScript: |
+        cd ${{ parameters.iacPath }}
+        $files = Get-ChildItem -Filter *.bicep 
+        foreach { $file in $files
+          bicep build '$file.FullName'
+        }
+  - task: RunARMTTKTestsXPlat@1
+    displayName: "IAC: ARM TTK"
+    inputs:
+      templatelocation: '${{ parameters.iacPath }}'
+      resultLocation: '$(System.DefaultWorkingDirectory)/results'
+      cliOutputResults: true
+  - task: PublishTestResults@2
+    displayName: 'IAC: Publish test results'
+    inputs:
+      testResultsFormat: 'NUnit'
+      failTaskOnFailedTests: true
+      testResultsFiles: '$(System.DefaultWorkingDirectory)/results/*-armttk.xml'
+    condition: 'always()'
+  - task: PublishBuildArtifacts@1
+    displayName: 'IAC: Publish IaC Artifact'
+    inputs:
+      PathtoPublish: "${{ parameters.iacPath }}"
+      ArtifactName: "${{ parameters.iacArtifactName }}"
+      publishLocation: "Container"

@@ -1,0 +1,36 @@
+
+---
+# Synopsis: Azure resource must have an valid env tag set.
+apiVersion: github.com/microsoft/PSRule/v1
+kind: Rule
+metadata:
+  name: msft.Azure.Tags
+spec:
+  with:
+    - PSRule.Rules.Azure\Azure.Resource.SupportsTags
+  condition:
+    allOf:
+      - in:
+          - 'prd'
+          - 'tst'
+          - 'dev'
+          - 'acc'
+        field: 'tags.environment'
+
+---
+# Synopsis: Storage account names need to be between 3 and 24 characters long and start with 'st'.
+apiVersion: github.com/microsoft/PSRule/v1
+kind: Rule
+metadata:
+  name: msft.Storage.NameConvention
+spec:
+  type:
+  - Microsoft.Storage/storageAccounts
+  condition:
+    allOf:
+      - name: '.'
+        greaterOrEquals: 3
+      - name: '.'
+        lessOrEquals: 24
+      - name: '.'
+        startsWith: 'st'
