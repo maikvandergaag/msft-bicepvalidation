@@ -19,6 +19,7 @@ steps:
         cd ${{ parameters.iacPath }}
         $files = Get-ChildItem -Filter *.bicep 
         foreach($file in $files){
+          Write-Host "Building $file"
           bicep build '$file.FullName'
         }
   - task: RunARMTTKTestsXPlat@1
