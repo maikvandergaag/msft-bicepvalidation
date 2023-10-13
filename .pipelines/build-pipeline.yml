@@ -10,7 +10,7 @@ stages:
   - template: templates/infrastructure.yml
     parameters:
       build: true
-      documentation: false
+      documentation: true
       psrule: true
       msado: true
-      serviceconnection: ''
+      serviceconnection: 'Tenant Root Group'
