@@ -47,6 +47,7 @@ stages:
       - job: PSRule
         displayName: Run PSRule
         condition: eq('${{ parameters.psrule }}', true)
+        dependsOn: MS_ADO
         workspace:
           clean: all
         continueOnError: false
@@ -55,6 +56,7 @@ stages:
       - job: Documentation_Generation
         displayName: Documentation Generation
         condition: eq('${{ parameters.documentation }}', true)
+        dependsOn: Build_IaC
         workspace:
           clean: all
         continueOnError: false
