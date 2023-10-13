@@ -26,7 +26,6 @@ stages:
     jobs:
       - job: MS_ADO
         displayName: Microsoft Security for DevOps
-        dependsOn: Build_IaC
         condition: eq('${{ parameters.msado }}', true)
         workspace:
           clean: all
@@ -56,7 +55,6 @@ stages:
       - job: Documentation_Generation
         displayName: Documentation Generation
         condition: eq('${{ parameters.documentation }}', true)
-        dependsOn: Build_IaC
         workspace:
           clean: all
         continueOnError: false
