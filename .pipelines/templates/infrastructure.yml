@@ -1,7 +1,7 @@
 parameters:
   - name: bicepPath
     type: string
-    default: '$(System.DefaultWorkingDirectory)/modules/'
+    default: '$(System.DefaultWorkingDirectory)/bicep/'
   - name: serviceconnection
     type: string
   - name: iacArtifactName

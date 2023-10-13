@@ -11,7 +11,6 @@ stages:
     parameters:
       build: true
       documentation: false
-      buildScripts: true
-      buildInfrastructure: true
-      analyse: true
+      psrule: true
+      msado: true
       serviceconnection: ''
