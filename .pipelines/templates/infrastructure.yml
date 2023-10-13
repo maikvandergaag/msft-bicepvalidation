@@ -47,7 +47,6 @@ stages:
       - job: PSRule
         displayName: Run PSRule
         condition: eq('${{ parameters.psrule }}', true)
-        dependsOn: MS_ADO
         workspace:
           clean: all
         continueOnError: false
