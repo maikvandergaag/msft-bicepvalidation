@@ -1,5 +1,3 @@
-parameters:
-
 steps:
   - task: ps-rule-assert@2
     displayName: Run PSRule analysis
