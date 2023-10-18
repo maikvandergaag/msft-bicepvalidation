@@ -14,3 +14,21 @@ spec:
     type: '.'
     in:
       - 'Microsoft.Storage/storageAccounts'
+
+---
+# Synopsis: Azure resource must have an valid env tag set.
+apiVersion: github.com/microsoft/PSRule/v1
+kind: Rule
+metadata:
+  name: msft.Azure.Tags
+spec:
+  with:
+    - PSRule.Rules.Azure\Azure.Resource.SupportsTags
+  condition:
+    allOf:
+      - in:
+          - 'prd'
+          - 'tst'
+          - 'dev'
+          - 'acc'
+        field: 'tags.environment'

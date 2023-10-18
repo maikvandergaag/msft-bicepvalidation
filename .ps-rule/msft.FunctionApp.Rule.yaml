@@ -4,15 +4,11 @@
 apiVersion: github.com/microsoft/PSRule/v1
 kind: Rule
 metadata:
-  name: msft.Storage.NameConvention
+  name: msft.FunctionApp.NameConvention
 spec:
   type:
-  - Microsoft.Storage/storageAccounts
+  - Microsoft.web/sites
   condition:
     allOf:
       - name: '.'
-        greaterOrEquals: 3
-      - name: '.'
-        lessOrEquals: 24
-      - name: '.'
-        startsWith: 'azst'
+        startsWith: 'azfunc-'

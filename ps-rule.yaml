@@ -24,7 +24,7 @@ input:
     - '!bicep/**/*.bicepparam'
     - '!bicep/**/*.bicep'
     # Include module tests.
-    - '!modules/**/*.bicep'
+    - '!modules/**/*.test.bicep'
 
 configuration:
   AZURE_PARAMETER_FILE_EXPANSION: true
