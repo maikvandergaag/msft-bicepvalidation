@@ -1,0 +1,96 @@
+{
+  "hydrated": false,
+  "properties": {
+    "hydrationStatus": "This file does not contain identifying data. It is safe to check into your repo. To hydrate this file with identifying data, run `guardian hydrate --help` and follow the guidance."
+  },
+  "version": "1.0.0",
+  "snapshots": {
+    "history.run.202310181230": {
+      "name": "history.run.202310181230",
+      "createdDate": "2023-10-18 10:31:35Z",
+      "lastUpdatedDate": "2023-10-18 10:31:35Z"
+    }
+  },
+  "results": {
+    "d87ddc62e3bf69b0a1d8fe199b392bbc4485bd34faec714a614ec7e8028d9ab1": {
+      "signature": "d87ddc62e3bf69b0a1d8fe199b392bbc4485bd34faec714a614ec7e8028d9ab1",
+      "target": "file:///C:/src/github/msft-bicepvalidation",
+      "memberOf": [
+        "history.run.202310181230"
+      ],
+      "tool": "antimalware",
+      "ruleId": "NoThreatsFound",
+      "createdDate": "2023-10-18 10:31:35Z"
+    },
+    "741263ef017c37d41f2da0c561b2d21a1f2b9870f1dce0e2cc70d66175dd9cb6": {
+      "signature": "741263ef017c37d41f2da0c561b2d21a1f2b9870f1dce0e2cc70d66175dd9cb6",
+      "target": "modules/functionapp/functionapp.bicep",
+      "memberOf": [
+        "history.run.202310181230"
+      ],
+      "tool": "templateanalyzer",
+      "ruleId": "AZR-000202",
+      "createdDate": "2023-10-18 10:31:35Z"
+    },
+    "722bdba09c54212ca0c998a4b2d1e99c02013deb649e31e16828a072a2c442e5": {
+      "signature": "722bdba09c54212ca0c998a4b2d1e99c02013deb649e31e16828a072a2c442e5",
+      "target": "modules/functionapp/functionapp.bicep",
+      "memberOf": [
+        "history.run.202310181230"
+      ],
+      "tool": "templateanalyzer",
+      "ruleId": "AZR-000202",
+      "createdDate": "2023-10-18 10:31:35Z"
+    },
+    "c201c39132790b57e400677ce7821753a9646b406cbfa6bc9b6a1f1d4a2f3931": {
+      "signature": "c201c39132790b57e400677ce7821753a9646b406cbfa6bc9b6a1f1d4a2f3931",
+      "target": "modules/functionapp/functionapp.bicep",
+      "memberOf": [
+        "history.run.202310181230"
+      ],
+      "tool": "templateanalyzer",
+      "ruleId": "AZR-000200",
+      "createdDate": "2023-10-18 10:31:35Z"
+    },
+    "159dc74b05fcfc312556944d57b22f38713096db2424784ed436b5114c4263de": {
+      "signature": "159dc74b05fcfc312556944d57b22f38713096db2424784ed436b5114c4263de",
+      "target": "modules/functionapp/functionapp.bicep",
+      "memberOf": [
+        "history.run.202310181230"
+      ],
+      "tool": "templateanalyzer",
+      "ruleId": "AZR-000200",
+      "createdDate": "2023-10-18 10:31:35Z"
+    },
+    "2aa22417b2109f85547abd2a5546e37bc0e2af7c61b7233e581f111e2c288c58": {
+      "signature": "2aa22417b2109f85547abd2a5546e37bc0e2af7c61b7233e581f111e2c288c58",
+      "target": "modules/functionapp/functionapp.bicep",
+      "memberOf": [
+        "history.run.202310181230"
+      ],
+      "tool": "templateanalyzer",
+      "ruleId": "AZR-000198",
+      "createdDate": "2023-10-18 10:31:35Z"
+    },
+    "95a295047e36cfa890289ee8d1c81346a2496d68478980f6c8593d2e6d185377": {
+      "signature": "95a295047e36cfa890289ee8d1c81346a2496d68478980f6c8593d2e6d185377",
+      "target": "modules/functionapp/functionapp.bicep",
+      "memberOf": [
+        "history.run.202310181230"
+      ],
+      "tool": "templateanalyzer",
+      "ruleId": "AZR-000198",
+      "createdDate": "2023-10-18 10:31:35Z"
+    },
+    "db2276fa861f76b5f1700adb7293934d68e021cd9f23ec0142f4561d89bca519": {
+      "signature": "db2276fa861f76b5f1700adb7293934d68e021cd9f23ec0142f4561d89bca519",
+      "target": "bicep/certifiedstorage/certifiedstorage.bicep",
+      "memberOf": [
+        "history.run.202310181230"
+      ],
+      "tool": "templateanalyzer",
+      "ruleId": "AZR-000202",
+      "createdDate": "2023-10-18 10:31:35Z"
+    }
+  }
+}
