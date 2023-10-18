@@ -20,7 +20,7 @@ steps:
         $files = Get-ChildItem -Filter *.bicep -Recurse
         foreach($file in $files){
           Write-Host "Building $file"
-          bicep build '$file.FullName'
+          bicep build "$($file.FullName)"
         }
   - task: RunARMTTKTestsXPlat@1
     displayName: "IAC: ARM TTK"
